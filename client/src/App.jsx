@@ -9,7 +9,7 @@ function App() {
   const [messages, setMessages] = useState([]); // Use useState for message state
 
   useEffect(() => {
-    socket.current = io('http://localhost:3000', { transports: ['websocket', 'polling'] });
+    socket.current = io('https://chat-8b8k.onrender.com/', { transports: ['websocket', 'polling'] });
 
     socket.current.on('message', (message, id) => {
       if (id !== socket.current.id) {
