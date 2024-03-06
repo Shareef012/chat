@@ -1,14 +1,14 @@
 import express from "express"
 import { createServer } from "http"
 import { Server } from "socket.io";
-import { resolve } from "path";
+
 
 const app = express()
 const server = createServer(app)
 
 const io = new Server(server);
 
-app.use(express.static(resolve("./client")))
+
 
 io.on("connection", (socket) => {
     console.log("New user ", socket.id);
@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
 })
 
 app.get("/", (req, res) => {
-    res.sendFile("D:/Web development/chat application/client/index.html")
+    res.redirect("https://chat-application-dlhg.onrender.com/")
 })
 
 server.listen(3000, () => {
